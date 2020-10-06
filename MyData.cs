@@ -1,17 +1,21 @@
 ﻿using System;
+using System.ComponentModel;
 
 /// <summary>
 /// My awesome data model.
 /// </summary>
-public class MyData
+public class MyData : INotifyPropertyChanged
 {
+    private string name;
+    private bool isbuyable;
+
     /// <summary>
     /// The item name.
     /// </summary>
     public string Name
     {
-        get;
-        set;
+        get { return name; }
+        set { name = value; RaisePropertyChanged("Name"); }
     }
 
     /// <summary>
@@ -19,7 +23,17 @@ public class MyData
     /// </summary>
     public bool IsBuyable
     {
-        get;
-        set;
+        get { return isbuyable; }
+        set { isbuyable = value; RaisePropertyChanged("IsBuyable"); }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+    public void RaisePropertyChanged(String propertyName)
+    {
+        PropertyChangedEventHandler temp = PropertyChanged;
+        if (temp != null)
+        {
+            temp(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

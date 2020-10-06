@@ -13,6 +13,9 @@
         <Grid.Resources>
             <TestApplication:VisibilityConverter x:Key="VisibilityConverter" />
             <TestApplication:VisibilityConverter2 x:Key="VisibilityConverter2" />
+            
+           
+
         </Grid.Resources>
         <DataGrid x:Name="SampleGrid" AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -21,21 +24,37 @@
                 <DataGridTemplateColumn Header="Make a purchase">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Add to cart" x:Name="button02"
-                            Visibility="{Binding IsBuyable, Converter={StaticResource VisibilityConverter}}"
+                            <Button Content="Add to cart" x:Name="button02"                           
                         FontFamily="Trebuchet MS" FontSize="9" Margin="4,3,4,3"
-                                    >                               
+                                    Click="button02_Click"
+                                    >                       
                             </Button>
-                            
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsBuyable}" Value="True">
+                                    <Setter Property="Visibility" TargetName="button02" Value="Visible"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsBuyable}" Value="False">
+                                    <Setter Property="Visibility" TargetName="button02" Value="Collapsed"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Make a purchase2">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Add to cart" Name="button01"
-                            Visibility="{Binding IsBuyable, Converter={StaticResource VisibilityConverter2}}"
-                        FontFamily="Trebuchet MS" FontSize="9" Margin="4,3,4,3"/>
+                            <Button Content="Add to cart" Name="button01"                           
+                        FontFamily="Trebuchet MS" FontSize="9" Margin="4,3,4,3"
+                                    Click="button02_Click"
+                                    />
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsBuyable}" Value="False">
+                                    <Setter Property="Visibility" TargetName="button01" Value="Visible"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsBuyable}" Value="True">
+                                    <Setter Property="Visibility" TargetName="button01" Value="Collapsed"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 namespace UsingConverterColumnButtons
 {
@@ -65,30 +66,37 @@ namespace UsingConverterColumnButtons
     new MyData
     {
         Name = "Apple iPhone 3G",
-        IsBuyable = true
-    },
-    new MyData
-    {
-        Name = "Microsoft Silverlight 2",
-        IsBuyable = false,
-    },
-    new MyData
-    {
-        Name = "Microsoft .NET Framework 3.5"
-    },
-    new MyData
-    {
-        Name = "Microsoft Visual Studio 2008",
         IsBuyable = false
     },
     new MyData
     {
-        Name = "Microsoft Windows Vista Ultimate",
+        Name = "Microsoft Silverlight 2",
+        IsBuyable = true,
+    },
+    new MyData
+    {
+        Name = "Microsoft .NET Framework 3.5",
         IsBuyable = true
+    },
+    new MyData
+    {
+        Name = "Microsoft Visual Studio 2008",
+        IsBuyable = true
+    },
+    new MyData
+    {
+        Name = "Microsoft Windows Vista Ultimate",
+        IsBuyable = false
     }
 };
 
             SampleGrid.ItemsSource = sampleData;
+        }
+
+        private void button02_Click(object sender, RoutedEventArgs e)
+        {
+            MyData model = (sender as Button).DataContext as MyData;
+            model.IsBuyable = !model.IsBuyable;
         }
     }
 }
