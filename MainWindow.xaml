@@ -10,13 +10,6 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Grid>
-        <Grid.Resources>
-            <TestApplication:VisibilityConverter x:Key="VisibilityConverter" />
-            <TestApplication:VisibilityConverter2 x:Key="VisibilityConverter2" />
-            
-           
-
-        </Grid.Resources>
         <DataGrid x:Name="SampleGrid" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Product Name"
@@ -26,7 +19,7 @@
                         <DataTemplate>
                             <Button Content="Add to cart" x:Name="button02"                           
                         FontFamily="Trebuchet MS" FontSize="9" Margin="4,3,4,3"
-                                    Click="button02_Click"
+                                    Click="button01_Click"
                                     >                       
                             </Button>
                             <DataTemplate.Triggers>

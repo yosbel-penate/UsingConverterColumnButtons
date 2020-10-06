@@ -9,18 +9,12 @@ public class MyData : INotifyPropertyChanged
     private string name;
     private bool isbuyable;
 
-    /// <summary>
-    /// The item name.
-    /// </summary>
     public string Name
     {
         get { return name; }
         set { name = value; RaisePropertyChanged("Name"); }
     }
 
-    /// <summary>
-    /// Whether the item can be purchased right now.
-    /// </summary>
     public bool IsBuyable
     {
         get { return isbuyable; }

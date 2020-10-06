@@ -96,7 +96,13 @@ namespace UsingConverterColumnButtons
         private void button02_Click(object sender, RoutedEventArgs e)
         {
             MyData model = (sender as Button).DataContext as MyData;
-            model.IsBuyable = !model.IsBuyable;
+            model.IsBuyable = true;
+        }
+
+        private void button01_Click(object sender, RoutedEventArgs e)
+        {
+            MyData model = (sender as Button).DataContext as MyData;
+            model.IsBuyable = false;
         }
     }
 }
